@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 public class WeightedGraph <T> {
 
     ArrayList<T> cities = new ArrayList<>();
@@ -29,5 +31,35 @@ public class WeightedGraph <T> {
 
         adjMatrix[index1][index2] = fuel;
         adjMatrix[index2][index1] = fuel;
+    }
+
+    public boolean BFS(T startVertex, T endVertex){
+        int startIndex = cities.indexOf(startVertex);
+        int endIndex = cities.indexOf(endVertex); 
+
+        Queue<Integer> queue = new LinkedList<Integer>();
+        queue.add(startIndex);
+
+        boolean[] visited = new boolean[6];
+
+        visited[startIndex] = true;
+
+        while(!queue.isEmpty()){
+            int current;
+            current = queue.remove();
+
+            if (current == endIndex){
+                return true;
+            }
+            for(int j = 0; j < 6; j++) {
+                if(adjMatrix[current][j] != -1 && visited[j] == false){
+                    
+                    queue.add(j);
+                    visited[j] = true;
+                }
+
+            }
+        }
+        return false;
     }
 }

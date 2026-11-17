@@ -12,7 +12,7 @@ public class Main {
     route.addEdge("New York", "Chicago", 150);
     route.addEdge("Chicago", "Denver", 300);
     route.addEdge("Denver", "Los Angeles",250);
-    route.addEdge("Los Angeles", "Seattle", 180);
+    
     route.addEdge("New York","Miami",400);
 
     System.out.println("Cities in route: "  + route.cities);
@@ -27,5 +27,9 @@ public class Main {
            System.out.println();
    }
 
+   System.out.println("----Phase 2 Testing----");
+
+   System.out.println("NewYork to Los Angeles: " + route.BFS("New York", "Los Angeles" ));
+   System.out.println("Seattle to Miami: " + route.BFS("Seattle", "Miami"));
 }
 }
