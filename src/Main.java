@@ -27,9 +27,14 @@ public class Main {
            System.out.println();
    }
 
-   System.out.println("----Phase 2 Testing----");
+   System.out.println("----Phase 2 Testing BFS ----");
 
    System.out.println("NewYork to Los Angeles: " + route.BFS("New York", "Los Angeles" ));
    System.out.println("Seattle to Miami: " + route.BFS("Seattle", "Miami"));
+
+   System.out.println("---Phase 3 Testing DFS----");
+   System.out.println("New York to Los Angeles: " + route.DFS("New York", "Los Angeles"));
+
+   System.out.println("Seattle to Miami: " + route.DFS("Seattle", "Miami"));
 }
 }

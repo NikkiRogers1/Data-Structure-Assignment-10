@@ -1,3 +1,4 @@
+import java.util.Stack;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -62,4 +63,35 @@ public class WeightedGraph <T> {
         }
         return false;
     }
+
+    public boolean DFS(T startVertex, T endVertex){
+
+        int startIndex = cities.indexOf(startVertex);
+        int endIndex= cities.indexOf(endVertex);
+
+        Stack<Integer> stack = new Stack<Integer>();
+        stack.push(startIndex);
+
+        boolean[] visited = new boolean[6];
+        visited[startIndex] = true;
+    
+        while(!stack.isEmpty()){
+
+            int current;
+            current = stack.pop();
+
+            if (current == endIndex){
+                return true;            
+            }
+            for (int j = 0; j<6; j++){
+            if(adjMatrix[current][j] != -1 && visited[j] == false){
+                stack.push(j);
+                visited[j] = true;
+                }
+            }
+        }
+        return false;
+    }
 }
+
+
